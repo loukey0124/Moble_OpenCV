@@ -16,3 +16,17 @@ cv2.line(img, (0, 0), (0, 500), (0,0,255), 5)
 cv2.imshow('img', img)
 cv2.waitKey()
 cv2.destroyAllWindows()
+
+#=====================================
+imageFile = './data/lena.jpg'
+image = cv2.imread(imageFile)
+
+pt1 = 200, 200
+pt2 = 350, 400
+
+cv2.rectangle(image, pt1, pt2, (0, 0, 255), 5)
+cv2.imshow('lena', image)
+cv2.imwrite("./data/lena_test.jpg", image)
+
+cv2.waitKey()
+cv2.destroyAllWindows()

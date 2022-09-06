@@ -1,7 +1,9 @@
 # 0210.py
 import cv2
 
-cap = cv2.VideoCapture(0) # 0번 카메라
+##cap = cv2.VideoCapture(0) # 0번 카메라
+cap = cv2.VideoCapture('./data/vtest.avi')
+
 frame_size = (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)),
               int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
 print('frame_size =', frame_size)

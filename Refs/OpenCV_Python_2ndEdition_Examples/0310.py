@@ -23,13 +23,13 @@ while True:
         
 # 방향으로 이동 
     if direction == 0:     # right
-        x += 10
+        x += 20
     elif direction == 1:   # down
-        y += 10
+        y += 20
     elif direction == 2:   # left
-        x -= 10
+        x -= 20
     else: # 3, up
-        y -= 10
+        y -= 20
         
 #   경계확인 
     if x < R:

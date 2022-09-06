@@ -17,3 +17,25 @@ cv2.circle(img, org, 3, (0, 255,0), 2)
 cv2.imshow('img', img)
 cv2.waitKey()
 cv2.destroyAllWindows()
+
+#동영상에 Hello OpenCV출력
+
+cap = cv2.VideoCapture('./data/vtest.avi')
+frame_size = (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)),
+              int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
+
+
+while True:   
+    retval, frame = cap.read() # 프레임 캡처
+    if not retval:
+        break
+    
+    cv2.putText(frame, text, org, font, 1, (0, 0, 0), 2)
+    cv2.imshow('frame',frame)
+    
+    key = cv2.waitKey(25)
+    if key == 27: # Esc
+        break
+if cap.isOpened():
+    cap.release()
+cv2.destroyAllWindows()
