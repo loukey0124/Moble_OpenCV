@@ -1,16 +1,13 @@
 import cv2
 import pytesseract
-import os
 from PIL import Image
-print(os.getenv("PATH"))
-image = cv2.imread('./data/alphabet.bmp')
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-filename = "{}.bmp".format(os.getpid())
-cv2.imwrite(filename, gray)
 
-text = pytesseract.image_to_string(Image.open(filename), lang=None)
-os.remove(filename)
-
+image = cv2.imread('./data/ocr.jpg', cv2.IMREAD_GRAYSCALE)
+_, image = cv2.threshold(image, 180, 255, cv2.THRESH_BINARY)
+cv2.imshow(' ', image)
+text = pytesseract.image_to_string(image, 'kor', '--oem 3 --psm 4')
 print(text)
-cv2.imshow("1", image)
+
+cv2.waitKey()
+cv2.destroyAllWindows()
